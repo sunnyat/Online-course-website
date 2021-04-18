@@ -1,0 +1,13 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>慕课网-程序员的梦工厂</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/home/css/home.css" />
+    {{block 'link'}}{{/block}}
+</head>
+<body>
+    {{block 'main'}}{{/block}}
+</body>
+</html>

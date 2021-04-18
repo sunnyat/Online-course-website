@@ -1,0 +1,42 @@
+<footer>
+    <div class="foot clearfix">
+        <ul>
+            <li class="foot-item">
+                <h3>关于</h3>
+                <ul>
+                    <li>联系我们</li>
+                    <li>加入我们</li>
+                    <li>版权声明</li>
+                </ul>
+            </li>
+            <li class="foot-item">
+                <h3>课程</h3>
+                <ul>
+                    <li>前端开发</li>
+                    <li>JAVA开发</li>
+                    <li>Android开发</li>
+                </ul>
+            </li>
+            <li class="foot-item">
+                <h3>关注</h3>
+                <ul>
+                    <li>新浪微博</li>
+                    <li>企业微信</li>
+                    <li>QQ空间</li>
+                </ul>
+            </li>
+            <li class="foot-item">
+                <h3>留言</h3>
+                <ul>
+                    <li>意见反馈</li>
+                    <li>问题留言</li>
+                    <li>在线客服</li>
+                </ul>
+            </li>
+            <li class="foot-item" style="background: none;">
+                <h3 class="weixinIcon">微信关注</h3>
+                <img class="weixin" src="images/weixin.png" alt="">
+            </li>
+        </ul>
+    </div>
+</footer>

@@ -1,0 +1,144 @@
+{{extend './common/layout.art'}}
+
+{{block 'link'}}
+    <link rel="stylesheet" type="text/css" media="screen" href="/home/css/video.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/home/css/course.css" />
+{{/block}}
+
+{{block 'main'}}
+
+    {{include './common/header.art'}}
+
+    <!-- 视频 -->
+    <div class="videoBanner">
+        <div class="video_box">
+            <div class="video_title">
+                <h2>{{course.title}}</h2>
+            </div>
+            <div class="video">
+                <a href="javascript:;" class="play">&#xe61d;</a>
+                <video src="{{course.video}}"
+                    poster=""></video>
+                <div class="controls">
+                    <a href="javascript:;" class="switch">&#xe623;</a>
+                    <a href="javascript:;" class="enlarge">&#xe63d;</a>
+                    <div class="time">
+                        <div class="progress">
+                            <div class="playprogress">
+                                <div class="slider"></div>
+                            </div>
+                        </div>
+                        <div class="timedisplay">
+                            <span class="currentTime">00:00</span> / <span class="duration">00:00</span>
+                        </div>
+                    </div>
+                    <div class="speed">
+                        <div class="speed_btn">
+                            <ul>
+                                <li>0.5x</li>
+                                <li>0.75x</li>
+                                <li>1.0x</li>
+                                <li>1.25x</li>
+                                <li>1.5x</li>
+                                <li>2.0x</li>
+                            </ul>
+                        </div>
+                        <span>倍速</span>
+                    </div>
+                    <div class="volume">
+                        <a href="javascript:;" class="volume_btn">&#xe63e;</a>
+                        <input type="range" class="volume_range" min="0" max="100" value="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="introduction">
+            <span>←</span>
+            <div class="con">
+                <div class="head_img fl">
+                    <img src="{{course.author.cover}}" alt="">
+                </div>
+                <a href="#">
+                    <p class="author fl">{{course.author.username}}</p>
+                </a>
+                <div class="course_con">{{@course.content}}</div>
+            </div>
+        </div>
+
+      </div>
+    <!-- 评论区 -->
+    <div class="MsgTitle">
+        <div class="box comWidth"><h3>留言区</h3><p>（请文明留言）</p></div>
+    </div>
+    <div class="leaveMsg comWidth">
+        <form class="comWidth" action="/home/comment" method="post">
+            {{if userInfo}}
+            <div class="publish_left fl">
+                <div class="head_img">
+                    <img src="{{@userInfo.cover}}" alt="">
+                </div>
+            </div>
+            <textarea name="content" id="msgArea" rows="8"></textarea>
+            <input type="hidden" name="uid" value="{{@userInfo._id}}">
+            <input type="hidden" name="cid" value="{{@course._id}}">
+            <span class="msg_number"><span id="textNum">0</span>/200</span>
+            <input type="submit" value="我要留言" class="fr">
+            {{else}}
+            <h2 style="text-indent: 250px;color: #666">请先进行登录，再对课程进行评论！</h2>
+            {{/if}}
+        </form>
+        <ul>
+            {{each comments}}
+            <li>
+                <div class="item_left fl">
+                    <div class="head_img">
+                        <img src="{{$value.uid.cover}}" alt="">
+                    </div>
+                </div>
+                <div class="item_right fl">
+                    <p class="author">{{$value.uid.username}}</p>
+                    <p class="comment_con">{{$value.content}}</p>
+                    <div class="comment_footer">
+                        <p class="floor fl">1楼</p>
+                        <p class="date fr">{{dateFormat($value.time), 'yyyy-mm-dd'}}</p>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+
+    </div>
+    <div class="page"></div>
+
+    {{include './common/footer.art'}}
+
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="/home/js/video.js"></script>
+    <script src="/home/js/animate.js"></script>
+    <script>
+        $('#msgArea').on("keyup",function(){
+            $('#textNum').text($('#msgArea').val().length);//这句是在键盘按下时，实时的显示字数
+            if($('#msgArea').val().length > 200){
+                $('#textNum').text(200);//长度大于规定字符时0处显示的也只是300
+                $('#msgArea').val($('#msgArea').val().substring(0,200));//长度大于规定时截取规定数量的字符
+            }
+        })
+        $('#textNum').text($('#msgArea').val().length);//这句是在刷新的时候仍然显示字数
+
+        // 动画函数 课程介绍划入划出
+        var introduction = document.querySelector('.introduction');
+        var con = document.querySelector('.con');
+        introduction.addEventListener('mouseenter', function() {
+            // console.log('keyi')
+            animate(con, -400, function() {
+                introduction.children[0].innerHTML = '→';
+            })
+        })
+        introduction.addEventListener('mouseleave', function() {
+            animate(con, 0, function() {
+                introduction.children[0].innerHTML = '←';
+            })
+        })
+    </script>
+{{/block}}

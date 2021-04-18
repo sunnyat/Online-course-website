@@ -1,0 +1,119 @@
+body {
+    width: 1260px;
+    height: 600px;
+    background: url(../images/register_bg.jpg) no-repeat;
+    background-size: cover;
+}
+p{
+    color: #ddd;
+}
+.head p, form{
+    font: "Microsoft Yahei",Arial;
+}
+.head {
+    width: 100%;
+    height: 110px;
+    text-align: center;
+}
+.head p {
+    font-size: 50px;
+    line-height: 110px;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+#register {
+    width: 430px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 50px 70px;
+    border-radius: 30px;
+    background-color: rgba(51, 51, 51, 0.7);
+    /* background-color: rgba(170, 167, 167, 0.8); */
+    box-shadow: 0 0 3px #eee;
+
+}
+form {
+    width: 450px;
+    /* font-size: 20px; */
+    /* line-height: 100px; */
+    padding-left: 20px;
+    overflow: hidden;
+}
+#register #honeyname,
+#register #pwd,
+#register #email{
+    float: left;
+    width: 300px;
+    height: 35px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    line-height: 35px;
+    padding: 0 10px;
+    color: #444;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 0.5px solid #fff;
+    box-shadow: 0 0 4px #fff;
+    background-color: rgba(238, 238, 238, 0.8);
+}
+#register #email {
+    margin-bottom: 10px;
+
+}
+.p1, .p2 {
+    font-size: 12px;
+    line-height: 35px;
+    background: url("../images/remind.png") no-repeat;
+    background-size: 13px;
+    background-position: 325px 12px;
+}
+.p2 {
+    line-height: 80px;
+    background-position: 325px 34px;
+}
+.wrong1, .wrong2, .wrong3 {
+    color: #f00;
+    background: url("../images/wrong.png") no-repeat;
+    background-size: 13px;
+
+}
+.wrong1 {
+    background-position: 325px 12px;
+}
+.wrong2 {
+    background-position: 325px 34px;
+}
+.right1, .right2, .right3 {
+    color: #1AFA29;
+    background: url("../images/right.png") no-repeat;
+    background-size: 13px;
+}
+.right1 {
+    background-position: 325px 12px;
+}
+.right2 {
+    background-position: 325px 34px;
+}
+.restart, .go {
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.restart {
+    width: 120px;
+    background-color: seagreen;
+}
+.go {
+    width: 200px;
+    background-color: firebrick;
+}
+#register #check {
+    vertical-align: middle;
+    height: 30px;
+    margin: 0 3px;
+}
+#register .p4 {
+    display: inline-block;
+    line-height: 30px;
+
+}

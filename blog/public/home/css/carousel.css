@@ -1,0 +1,66 @@
+.con {
+    /* margin: 100px auto; */
+    position: relative;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.con .arrow-l, .arrow-r {
+    display: none;
+    width: 34px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #eee;
+    position: absolute;
+    top: 38%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.con .arrow-l {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.con .arrow-r {
+    right: 8px;
+    border-radius: 5px 0 0 5px;
+}
+
+.con ul {
+    position: absolute;
+    width: 600%;
+}
+
+.con ul li {
+    float: left;
+}
+
+.con ul li img, .con{
+    width: 1160px;
+    height: 496px;
+}
+
+.con ol {
+    position: absolute;
+    left: 50%;
+    bottom: 14%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.con ol li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.con .current {
+    background-color: #ffe;
+}

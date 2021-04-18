@@ -1,0 +1,84 @@
+{{extend './common/layout.art'}}
+
+{{block 'link'}}
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1518420_oljcm07nn2.css">
+    <link rel="stylesheet" href="/home/css/carousel.css" />
+{{/block}}
+
+{{block 'main'}}
+
+    {{include './common/header.art'}}
+
+    <!-- 轮播图&导航 -->
+    <div class="box_w">
+        <div class="main">
+            <div class="main_right">
+                <div class="con">
+                    <i class="icon iconfont iconarrow_left arrow-l"></i>
+                    <i class="icon iconfont iconarrow_right arrow-r"></i>
+                    <ul>
+                        <li>
+                            <a href="javascript:;"><img src="images/slide1.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img src="images/slide2.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img src="images/slide3.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img src="images/slide4.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><img src="images/slide5.jpg" alt=""></a>
+                        </li>
+                    </ul>
+                    <ol>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 推荐部分 -->
+    <div class="referTitle">
+        <div class="titleBox">
+            <!-- <p>新上好课</p> -->
+        </div>
+    </div>
+    <div class="newCourse">
+        <ul class="clearfix">
+            {{each result.records}}
+            <li class="clearfix">
+                <a href="/home/course?id={{@$value._id}}" class="box">
+                    <div class="img_box">
+                        <img src="{{$value.cover}}" alt="">
+                    </div>
+                    <p class="title">{{$value.title}}</p>
+                    <p class="courseAuthor">{{$value.author.username}}</p>
+                    <span class="fr">{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</span>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <!-- 分页 -->
+    <div class="page box">
+        <div class="page_box">
+            {{if result.page > 1}}
+            <a href="/home/?page={{result.page - 1}}">上一页</a>
+            {{/if}}
+            {{each result.display}}
+            <a href="/home/?page={{$value}}" class="{{$value == result.page ? 'active' : ''}}" style="{{$value == result.page ? 'color:#fff' : ''}}">{{$value}}</a>
+            {{/each}}
+            {{if result.page < result.pages}}
+            <a href="/home/?page={{result.page - 0 + 1}}">下一页</a>
+            {{/if}}
+        </div>
+    </div>
+
+    {{include './common/footer.art'}}
+
+    <script src="/home/js/main.js"></script>
+    <script src="/home/js/carousel.js"></script>
+{{/block}}

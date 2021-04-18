@@ -1,0 +1,53 @@
+<!-- 正文-顶部 -->
+<div class="top_box">
+    <div class="top">
+        <div class="mk_logo"><img src="images/logo.png" alt="慕课网"></div>
+        <div class="top_muke fl">
+            <ul class="topl_ul">
+                <li><a href="/home/">首 页</a></li>
+                <li><a href="/admin/user">后台管理</a></li>
+                <li><a href="#">移动开发</a></li>
+                <li>
+                    <form action="/home/search" method="get">
+                        <div class="search_box">
+                        <input name="search" type="text" class="search_text">
+                            <div style="display:block; float: right;">
+                                <div class="search_">
+                                    <input type="submit" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="login_area fr">
+            <ul class="topr_ul">
+                
+                <li>
+                    <div class="shopcar">
+                        <div class="shopcar_img"></div><a href="#"
+                            style="display: inline-block;line-height: 38px;margin-left: -34px">购物车</a>
+                    </div>
+                </li>
+                <li><a href="#">
+                        <div class="message"></div>
+                    </a></li>
+                <li>
+                    <p class="person_name" style="display: block;"></p>
+                    <% if (userInfo.username) { %>
+                        <a href="">{{userInfo.username}}</a>
+                    <% } else { %>
+                    <a href="">
+                        <a href="../admin/login" >登录 </a>/
+                        <a href="./register.html">注册</a>
+                    </a>
+                    <% } %>
+                    <a class="comm_headImg myhead" style="background-image: url(images/myhead.jpg); display: none;"
+                        href="javascript:;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

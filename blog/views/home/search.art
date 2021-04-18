@@ -1,0 +1,34 @@
+{{extend './common/layout.art'}}
+
+{{block 'link'}}
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1518420_oljcm07nn2.css">
+    <link rel="stylesheet" href="/home/css/carousel.css" />
+{{/block}}
+
+{{block 'main'}}
+
+    {{include './common/header.art'}}
+
+    <div class="newCourse search_page">
+        <div class="search_result box">为您找到以下关于‘{{condition}}’的课程：</div>
+        <ul class="clearfix">
+            {{each result}}
+            <li class="clearfix">
+                <a href="/home/course?id={{@$value._id}}" class="box">
+                    <div class="img_box">
+                        <img src="{{$value.cover}}" alt="">
+                    </div>
+                    <p class="title">{{$value.title}}</p>
+                    <p class="courseAuthor">{{$value.author.username}}</p>
+                    <span class="fr">{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</span>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    {{include './common/footer.art'}}
+
+    <script src="/home/js/main.js"></script>
+    <script src="/home/js/carousel.js"></script>
+{{/block}}

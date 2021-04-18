@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class="all">
+        <div class="head">
+            <p>注册</p>
+        </div>
+        <div id="register">
+            <form method="POST" action="">
+                <input type="text" name="honeyname" id="honeyname" placeholder="昵称(2~8个字符组成)" />
+                <p class="p1">请输入昵称</p>
+                <br>
+                <input type="password" name="pwd" id="pwd" placeholder="密码（6-16个字符组成，区分大小写）" />
+                <p class="p2">请输入密码</p>
+                <br>
+                <input type="text" name="email" id="email" placeholder="邮箱（登录名）" />
+                <p class="p3"></p>
+                <br><br><br>
+                <label for="">
+                    <input type="checkbox" name="" id="check" class="">同意《阿记者从北京爱看书吧哈手机卡不开机》
+                </label>
+                <br>
+                <input type="reset" class="restart" value="重置" />
+                <input type="submit" class="go" value="注册" />
+            </form>
+        </div>
+    </div>
+<script src="js/register.js"></script>
+</body>
+</html>

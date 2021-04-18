@@ -1,0 +1,113 @@
+{{extend './common/layout.art'}}
+{{block 'main'}}
+    {{include './common/header.art'}}
+    <!-- 主体内容 -->
+    <div class="content">
+        {{include './common/aside.art'}}
+        <div class="main">
+            <!-- 分类标题 -->
+            <div class="title">
+                <h4 style="display: {{button == '修改' ? 'block' : 'none'}}">{{@article && article._id}}</h4>
+                <p class="tips">{{message}}</p>
+            </div>
+            <!-- /分类标题 -->
+            <!-- 
+                enctype 指定表单数据的编码类型
+                    application/x-www-form-urlencoded
+                        name=zhansan&age=20
+                    multipart/form-data 将表单数据编码成二进制类型
+                    即只要表单涉及到文件上传功能，都要加上multipart/form-data
+             -->
+            <form class="form-container" action="{{link}}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>标题</label>
+                    <input value="{{article && article.title}}" name="title" type="text" class="form-control" placeholder="请输入文章标题">
+                </div>
+                <div class="form-group">
+                    <label>作者</label>
+                    <input value="{{@(article && result.author._id) || userInfo._id}}" name="author" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>发布时间</label>
+                    <input name="publishDate" type="date" class="form-control" id="date_info">
+                </div>
+                <!-- {{article && article.publishDate}}111{{article && dateFormat(article.publishDate), 'yyyy-mm-dd'}} -->
+                <div class="form-group">
+                   <label for="exampleInputFile">课程封面</label>
+                   <input name="cover" type="file" id="file" accept="image/*" multiple>
+                   <div class="thumbnail-waper">
+                       <img class="img-thumbnail" src="{{article && article.cover}}" id="preview">
+                   </div>
+                </div>
+                <div class="form-group">
+                   <label for="exampleInputFile">课程视频</label>
+                   <input name="cover" type="file" accept="video/*" multiple>
+                   <div class="thumbnail-waper">
+                       <img class="img-thumbnail" src="{{article && article.video}}">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label>内容简介</label>
+                    <textarea name="content" class="form-control briefContent" id="editor"></textarea>
+                </div>
+                <div class="buttons">
+                    <input value="{{button}}" type="submit" class="btn btn-primary">
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    <!-- /主体内容 -->
+{{/block}}
+{{block 'script'}}
+    <script src="/admin/lib/ckeditor5/ckeditor.js"></script>
+    <script type="text/javascript">
+        let editor;
+
+        ClassicEditor
+                .create( document.querySelector('#editor'))
+                .then(newEditor => {
+                    editor = newEditor;
+                })
+                .catch( error => {
+                    console.error( error );
+                });
+
+        // 获取数据
+        // const editorData = editor.getData();
+        // 选择文件上传控件
+        var file = document.querySelector('#file');
+        var preview = document.querySelector('#preview');
+        // 当用户选择完文件以后
+        file.onchange = function() {
+            // 1.创建文件读取对象
+            var reader = new FileReader();
+            // 用户选择的文件列表
+            // console.log();
+            // 2.读取文件
+            reader.readAsDataURL(this.files[0]);
+            // 3.监听onload事件
+            reader.onload = function() {
+                // 将文件读取结果显示在页面中
+                preview.src = reader.result;
+            }
+        }
+
+        // 修改课程简介时 将原来的内容输出在框里
+        var briefContent = document.querySelector('.briefContent');
+        if((briefContent.value = "{{@article && article.content}}") == 'undefined') {
+            briefContent.value = " ";
+        };
+        
+        //  默认为当前日期
+        // if({{button == '添加'}}) {
+            $(document).ready(function () {
+                var time = new Date();
+                var day = ("0" + time.getDate()).slice(-2);
+                var month = ("0" + (time.getMonth() + 1)).slice(-2);
+                var today = time.getFullYear() + "-" + (month) + "-" + (day);
+                $('#date_info').val(today);
+            });
+        // }
+    </script>
+{{/block}}
