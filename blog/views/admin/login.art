@@ -23,6 +23,7 @@
                         <input name="password" type="password" class="form-control" placeholder="请输入密码">
                     </div>
                     <button type="submit" class="btn btn-primary">登录</button>
+                    <a href="/admin/register" class="btn-register">注册</a>
                 </form>
             </div>
             <div class="tips"></div>

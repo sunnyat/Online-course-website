@@ -97,6 +97,16 @@ h4 {
 	padding-right: 26px;
 }
 
+.btn-register {
+	float: right;
+	margin-right: 10px;
+	line-height: 50px;
+	font-size: 14px;
+}
+.btn-register:hover {
+	color: red;
+}
+
 .header .info .profile:hover {
 	background: #f9f9f9;
 }
@@ -372,4 +382,19 @@ h4 {
 
 .modal-content {
 	display: block;
+}
+
+/* 注册页面 */
+.register-con .main {
+	margin: 30px auto;
+	/* margin: 20px 220px 0; */
+	min-width: 500px;
+	max-width: 700px;
+	background-color: #f5f3f3;
+	border-radius: 6px;
+}
+
+.register-con .main h4 {
+	text-align: center;
+	font-size: 30px;
 }

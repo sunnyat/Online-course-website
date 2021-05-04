@@ -3,8 +3,9 @@ const guard = (req, res, next) => {
     // 判断用户登录状态
     // 如果用户是登录的 将请求放行
     // 不是登录的 将请求重定向到登录页面
-    if(req.url != '/login' && !req.session.username) {
+    if(req.url != '/login' && !(req.url.indexOf("register") + 1) && !req.session.username) {
         res.redirect('/admin/login');
+        // console.log()
     } else {
         // if(req.session.role == 'normal') {
         //     // 让它跳转到首页 return阻止程序向下执行

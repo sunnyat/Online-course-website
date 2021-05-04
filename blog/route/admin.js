@@ -12,6 +12,12 @@ admin.get('/login', require('./admin/loginPage'));
 // 实现登录功能
 admin.post('/login', require('./admin/login'));
 
+// 渲染注册页面
+admin.get('/register', require('./admin/registerPage'));
+
+// 实现注册功能
+admin.post('/register', require('./admin/register'));
+
 // 创建用户列表路由
 admin.get('/user', require('./admin/userPage'));
 
