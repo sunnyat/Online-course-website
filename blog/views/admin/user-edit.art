@@ -29,7 +29,7 @@
                    <label for="exampleInputFile">上传头像</label>
                    <input name="cover" type="file" id="file" accept="image/*">
                    <div class="thumbnail-waper">
-                       <img class="img-thumbnail" src="{{user && user.cover}}" id="preview">
+                       <img class="uimg-thumbnail" src="{{user && user.cover}}" id="preview">
                    </div>
                 </div>
                 <div class="form-group">

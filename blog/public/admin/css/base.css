@@ -349,6 +349,12 @@ h4 {
 	margin-top: 15px;
 }
 
+.video-thumbnail, .img-thumbnail{
+	width: 400px;
+}
+.uimg-thumbnail {
+	width: 140px;
+}
 .form-group:last-child {
 	margin-bottom: 0;
 }

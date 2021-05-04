@@ -43,7 +43,7 @@
                    <label for="exampleInputFile">课程视频</label>
                    <input name="cover" type="file" accept="video/*" multiple>
                    <div class="thumbnail-waper">
-                       <img class="img-thumbnail" src="{{article && article.video}}">
+                       <video class="video-thumbnail" src="{{article && article.video}}" controls="controls"></video>
                    </div>
                 </div>
                 <div class="form-group">
