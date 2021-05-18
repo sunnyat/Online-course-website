@@ -51,5 +51,20 @@ admin.post('/article-modify', require('./admin/article-modify'));
 // 删除课程功能
 admin.get('/delete-course', require('./admin/article-delete'));
 
+// 作业列表页面路由
+admin.get('/task', require('./admin/task'));
+
+// 作业编辑页面路由
+admin.get('/task-edit', require('./admin/task-edit'));
+
+// 实现作业上传功能的路由
+admin.post('/task-add', require('./admin/task-add'));
+
+// 实现作业修改功能的路由
+admin.post('/task-modify', require('./admin/task-modify'));
+
+// 删除作业功能
+admin.get('/task-delete', require('./admin/task-delete'));
+
 // 将路由对象作为模块成员进行导出
 module.exports = admin;

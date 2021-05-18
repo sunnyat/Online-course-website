@@ -13,6 +13,12 @@
 			  			课程管理
 			  		</a>
                 </li>
+                <li>
+                    <a class="item {{currentLink == 'task' ? 'active' : ''}}" href="/admin/task">
+						<span class="glyphicon glyphicon-tasks"></span>
+						上传作业
+					</a>
+                </li>
             </ul>
             <div class="cprt">
                 Powered by <a href="#" target="_blank">在线课程网站</a>

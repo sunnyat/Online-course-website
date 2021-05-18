@@ -1,0 +1,62 @@
+{{extend './common/layout.art'}}
+
+{{block 'main'}}
+    {{include './common/header.art'}}
+    <!-- 主体内容 -->
+    <div class="content">
+        {{include './common/aside.art'}}
+        <div class="main">
+            <!-- 分类标题 -->
+            <div class="title">
+                <h4 style="display: {{button == '修改' ? 'block' : 'none'}}">{{@user && user._id}}</h4>
+                <p class="tips">{{message}}</p>
+            </div>
+            <!-- /分类标题 -->
+            <form class="form-container" action="{{link}}" method="post">
+                <div class="form-group">
+                    <label>作业题目</label>
+                    <input value="{{task && task.title}}" name="title" type="text" class="form-control" placeholder="请输入文章标题">
+                </div>
+                <div class="form-group">
+                    <label>作者</label>
+                    <input value="{{@(task && result.author._id) || userInfo._id}}" name="author" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>发布时间</label>
+                    <input name="publishDate" type="date" class="form-control" id="date_info">
+                </div>
+                <div class="form-group">
+                    <label>作业内容</label>
+                    <textarea name="content" class="form-control briefContent" id="editor"></textarea>
+                </div>
+                <div class="buttons">
+                    <input value="{{button}}" type="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /主体内容 -->
+{{/block}}
+{{block 'script'}}
+    <script type="text/javascript">
+        // 获取数据
+        // const editorData = editor.getData();
+        // 选择文件上传控件
+        var file = document.querySelector('#file');
+        var preview = document.querySelector('#preview');
+        // 当用户选择完文件以后
+        file.onchange = function() {
+            // 1.创建文件读取对象
+            var reader = new FileReader();
+            // 用户选择的文件列表
+            // console.log();
+            // 2.读取文件
+            reader.readAsDataURL(this.files[0]);
+            // 3.监听onload事件
+            reader.onload = function() {
+                // 将文件读取结果显示在页面中
+                preview.src = reader.result;
+            }
+        }
+    </script>
+{{/block}}
