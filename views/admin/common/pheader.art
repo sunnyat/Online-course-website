@@ -2,12 +2,11 @@
     <div class="header">
     	<!-- 网站标志 -->
         <div class="logo fl">
-          在线课程后台管理 <i>Online courses</i>
+          管理员个人中心 <i>Online courses</i>
         </div>
         <!-- /网站标志 -->
         <!-- 用户信息 -->
         <div class="info">
-        <div class="backhome fl"><a href="/home/">首 页</a></div>
             <div class="profile dropdown fr">
                 <span class="btn dropdown-toggle" data-toggle="dropdown">
 					{{userInfo.username}}

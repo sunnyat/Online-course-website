@@ -9,7 +9,7 @@
         	<!-- 分类标题 -->
             <div class="title">
                 <h4>课程管理</h4>
-                <span>共找到1个课程</span>
+                <span>共找到以下课程</span>
                 <a href="/admin/article-edit" class="btn btn-primary new">上传新课程</a>
             </div>
             <!-- /分类标题 -->

@@ -66,5 +66,20 @@ admin.post('/task-modify', require('./admin/task-modify'));
 // 删除作业功能
 admin.get('/task-delete', require('./admin/task-delete'));
 
+// 个人中心路由
+admin.get('/personal', require('./admin/personal'));
+
+// 我上传的课程路由
+admin.get('/mycourse', require('./admin/mycourse'));
+
+// 我上传的作业路由
+admin.get('/mytask', require('./admin/mytask'));
+
+// 留言列表页面路由
+admin.get('/comment', require('./admin/comment'));
+
+// 删除留言功能
+admin.get('/comment-delete', require('./admin/comment-delete'));
+
 // 将路由对象作为模块成员进行导出
 module.exports = admin;

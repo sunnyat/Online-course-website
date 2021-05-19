@@ -1,0 +1,80 @@
+{{extend './common/layout.art'}}
+
+{{block 'main'}}
+    {{include './common/pheader.art'}}
+    <!-- 主体内容 -->
+    <div class="content">
+        {{include './common/paside.art'}}
+        <div class="main">
+            <!-- 分类标题 -->
+            <div class="title">
+                <h4 style="display: {{button == '修改' ? 'block' : 'none'}}">{{@user && user._id}}</h4>
+                <p class="tips">{{message}}</p>
+            </div>
+            <!-- /分类标题 -->
+            <form class="form-container" action="{{link}}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input value="{{user && user.username}}" name="username" type="text" class="form-control" placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label>邮箱</label>
+                    <input value="{{user && user.email}}" name="email" type="email" class="form-control" placeholder="请输入邮箱地址">
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input name="password" type="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                   <label for="exampleInputFile">上传头像</label>
+                   <input name="cover" type="file" id="file" accept="image/*">
+                   <div class="thumbnail-waper">
+                       <img class="uimg-thumbnail" src="{{user && user.cover}}" id="preview">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label>角色</label>
+                    <select name="role" class="form-control">
+                        <option value="normal" {{user && user.role == 'normal' ? 'selected' : ''}}>普通用户</option>
+                        <option value="admin" {{user && user.role == 'admin' ? 'selected' : ''}}>超级管理员</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>状态</label>
+                    <select name="state" class="form-control">
+                        <option value="0" {{user && user.state == '0' ? 'selected' : ''}}>启用</option>
+                        <option value="1" {{user && user.state == '1' ? 'selected' : ''}}>禁用</option>
+                    </select>
+                </div>
+                
+                <div class="buttons">
+                    <input value="{{button}}" type="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /主体内容 -->
+{{/block}}
+{{block 'script'}}
+    <script type="text/javascript">
+        // 获取数据
+        // const editorData = editor.getData();
+        // 选择文件上传控件
+        var file = document.querySelector('#file');
+        var preview = document.querySelector('#preview');
+        // 当用户选择完文件以后
+        file.onchange = function() {
+            // 1.创建文件读取对象
+            var reader = new FileReader();
+            // 用户选择的文件列表
+            // console.log();
+            // 2.读取文件
+            reader.readAsDataURL(this.files[0]);
+            // 3.监听onload事件
+            reader.onload = function() {
+                // 将文件读取结果显示在页面中
+                preview.src = reader.result;
+            }
+        }
+    </script>
+{{/block}}

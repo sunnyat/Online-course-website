@@ -8,8 +8,8 @@
         <div class="main">
         	<!-- 分类标题 -->
             <div class="title">
-                <h4>用户</h4>
-                <span>找到1个用户</span>
+                <h4>用户管理</h4>
+                <span>共找到以下用户</span>
                 <a href="/admin/user-edit" class="btn btn-primary new">新增用户</a>
             </div>
             <!-- /分类标题 -->
@@ -19,20 +19,18 @@
                     <tr>
                         <th>ID</th>
                         <th>用户名</th>
-                        <th>邮箱</th>
-                        <th>角色</th>
-                        <th>状态</th>
+                        <th>登录邮箱</th>
+                        <th>用户角色</th>
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{each users}}
                         <tr>
-                            <td>{{@$value._id}}</td>
+                            <td style="max-width:126px">{{@$value._id}}</td>
                             <td>{{$value.username}}</td>
                             <td>{{$value.email}}</td>
                             <td>{{$value.role == 'admin' ? '超级管理员' : '普通用户'}}</td>
-                            <td>{{$value.state == 0 ? '启用' : '禁用'}}</td>
                             <td>
                                 <a href="/admin/user-edit?id={{@$value._id}}" class="glyphicon glyphicon-edit"></a>
                                 <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target=".confirm-modal" data-id="{{@$value._id}}"></i>

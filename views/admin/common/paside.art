@@ -2,25 +2,19 @@
         <div class="aside fl">
             <ul class="menu list-unstyled">
                 <li>
-                    <a class="item {{currentLink == 'user' ? 'active' : ''}}" href="/admin/user">
+                    <a class="item {{currentLink == 'personal' ? 'active' : ''}}" href="/admin/personal">
 						<span class="glyphicon glyphicon-user"></span>
-						用户管理
+						基本资料
 					</a>
                 </li>
                 <li>
-                    <a class="item {{currentLink == 'article' ? 'active' : ''}}" href="/admin/article">
+                    <a class="item {{currentLink == 'mycourse' ? 'active' : ''}}" href="/admin/mycourse">
 			  			<span class="glyphicon glyphicon-th-list"></span>
-			  			课程管理
+			  			上传课程
 			  		</a>
                 </li>
                 <li>
-                    <a class="item {{currentLink == 'comment' ? 'active' : ''}}" href="/admin/comment">
-			  			<span class="glyphicon glyphicon-comment"></span>
-			  			留言管理
-			  		</a>
-                </li>
-                <li>
-                    <a class="item {{currentLink == 'task' ? 'active' : ''}}" href="/admin/task">
+                    <a class="item {{currentLink == 'mytask' ? 'active' : ''}}" href="/admin/mytask">
 						<span class="glyphicon glyphicon-tasks"></span>
 						上传作业
 					</a>
