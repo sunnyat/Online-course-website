@@ -28,7 +28,7 @@
                     <input value="{{@(article && result.author._id) || userInfo._id}}" name="author" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
-                    <label>发布时间</label>
+                    <label>更新时间</label>
                     <input name="publishDate" type="date" class="form-control" id="date_info">
                 </div>
                 <!-- {{article && article.publishDate}}111{{article && dateFormat(article.publishDate), 'yyyy-mm-dd'}} -->
@@ -41,9 +41,9 @@
                 </div>
                 <div class="form-group">
                    <label for="exampleInputFile">课程视频</label>
-                   <input name="cover" type="file" accept="video/*" multiple>
+                   <input name="cover" type="file" id="videofile" accept="video/*" multiple>
                    <div class="thumbnail-waper">
-                       <video class="video-thumbnail" src="{{article && article.video}}" controls="controls"></video>
+                       <video class="video-thumbnail" src="{{article && article.video}}" controls="controls" id="videopre"></video>
                    </div>
                 </div>
                 <div class="form-group">
@@ -75,10 +75,10 @@
 
         // 获取数据
         // const editorData = editor.getData();
-        // 选择文件上传控件
+        // 选择图片文件上传控件
         var file = document.querySelector('#file');
         var preview = document.querySelector('#preview');
-        // 当用户选择完文件以后
+        // 当用户选择完图片文件以后
         file.onchange = function() {
             // 1.创建文件读取对象
             var reader = new FileReader();
@@ -93,6 +93,23 @@
             }
         }
 
+        // 选择视频文件上传控件
+        var videofile = document.querySelector('#videofile');
+        var videopre = document.querySelector('#videopre');
+        // 当用户选择完视频文件以后
+        videofile.onchange = function() {
+            // 1.创建文件读取对象
+            var reader = new FileReader();
+            // 2.读取文件
+            reader.readAsDataURL(this.files[0]);
+            // 3.监听onload事件
+            reader.onload = function() {
+                // 将文件读取结果显示在页面中
+                videopre.src = reader.result;
+                console.log(reader.result);
+            }
+        }
+
         // 修改课程简介时 将原来的内容输出在框里
         var briefContent = document.querySelector('.briefContent');
         if((briefContent.value = "{{@article && article.content}}") == 'undefined') {
@@ -100,14 +117,12 @@
         };
         
         //  默认为当前日期
-        // if({{button == '添加'}}) {
-            $(document).ready(function () {
-                var time = new Date();
-                var day = ("0" + time.getDate()).slice(-2);
-                var month = ("0" + (time.getMonth() + 1)).slice(-2);
-                var today = time.getFullYear() + "-" + (month) + "-" + (day);
-                $('#date_info').val(today);
-            });
-        // }
+        $(document).ready(function () {
+            var time = new Date();
+            var day = ("0" + time.getDate()).slice(-2);
+            var month = ("0" + (time.getMonth() + 1)).slice(-2);
+            var today = time.getFullYear() + "-" + (month) + "-" + (day);
+            $('#date_info').val(today);
+        });
     </script>
 {{/block}}

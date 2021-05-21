@@ -64,7 +64,7 @@ const admin = require('./route/admin');
 
 // 拦截请求 判断用户登录状态
 app.use('/admin', require('./middleware/loginGuard'));
-app.use('/home', require('./middleware/loginGuard'));
+app.use('/home', require('./middleware/homeGuard'));
 
 // 为路由匹配请求路径
 app.use('/home', home);

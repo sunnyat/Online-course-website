@@ -5,6 +5,6 @@ module.exports = async(req, res) => {
     // return;
     await Task.findOneAndDelete({_id: req.query.id});
     // 重定向到作业列表页面
-    res.redirect('/admin/task');
+    res.redirect('/admin/mytask');
     
 };

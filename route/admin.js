@@ -1,8 +1,8 @@
 // 引用express框架
 const express = require('express');
-// 创建博客展示页面路由
+// 创建课程展示页面路由
 const admin = express.Router();
-//引入中间件，处理multipart数据...没用了
+//引入中间件，处理multipart数据
 // const multipart = require('connect-multiparty')
 // const multipartMiddleware = multipart()
 

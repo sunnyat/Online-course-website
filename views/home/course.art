@@ -65,12 +65,31 @@
                 <div class="course_con">{{@course.content}}</div>
             </div>
         </div>
-
       </div>
-    <!-- 评论区 -->
+
+    <!-- 留言盒子区 -->
+    <div class="commentBox">
     <div class="MsgTitle">
         <div class="box comWidth"><h3>留言区</h3><p>（请文明留言）</p></div>
+        <div class="box comWidth">
+            <div class="looktask" style="font-size: 16px;">查看作业</div>
+            <div class="tasks">
+                <div class="task_con">
+                    <ul>
+                        <li>
+                            <div class="task_name">{{tasks ? tasks.title : '暂无作业'}}</div>
+                            <hr>
+                            <p class="task_content">{{tasks ? tasks.content : '认真的学习课程吧！'}}</p>
+                            <div class="task_time">
+                                <p class="date fr">{{tasks && dateFormat(tasks.time), 'yyyy-mm-dd'}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="leaveMsg comWidth">
         <form class="comWidth" action="/home/comment" method="post">
             {{if userInfo}}
@@ -100,19 +119,18 @@
                     <p class="author">{{$value.uid.username}}</p>
                     <p class="comment_con">{{$value.content}}</p>
                     <div class="comment_footer">
-                        <p class="floor fl">1楼</p>
+                        <p class="floor fl"></p>
                         <p class="date fr">{{dateFormat($value.time), 'yyyy-mm-dd'}}</p>
                     </div>
                 </div>
             </li>
             {{/each}}
         </ul>
-
     </div>
-    <div class="page"></div>
+    </div>
+    <!-- 留言盒子结束 -->
 
     {{include './common/footer.art'}}
-
     <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script src="/home/js/video.js"></script>
     <script src="/home/js/animate.js"></script>
@@ -139,6 +157,26 @@
             animate(con, 0, function() {
                 introduction.children[0].innerHTML = '←';
             })
+        });
+
+        // 动画函数 作业划入划出
+        var looktask = document.querySelector('.looktask');
+        var tasks = document.querySelector('.tasks');
+        var leaveMsg = document.querySelector('.leaveMsg');
+        let height = document.querySelector('.task_con').offsetHeight;
+        tasks.style.top = -height - 120;
+        // console.log(height);
+        looktask.addEventListener('mouseenter', function() {
+            leaveMsg.style.zIndex = -10;
+            animatetop(tasks, height + 120, function() {
+                // tasks.style.zIndex = 10;
+            })
         })
+        looktask.addEventListener('mouseleave', function() {
+            animatetop(tasks, 0, function() {
+                // tasks.style.zIndex = -1;
+                leaveMsg.style.zIndex = 1;
+            })
+        });
     </script>
 {{/block}}

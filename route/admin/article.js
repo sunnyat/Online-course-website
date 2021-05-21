@@ -13,7 +13,7 @@ module.exports = async(req, res) => {
     // size 指定每页显示的页码数量
     // display 指定客户端要显示的页码数量
     // exec 向数据库中发送查询请求
-    let articles = await pagination(Article).find().page(page).size(6).display(2).populate('author').exec();
+    let articles = await pagination(Article).find().page(page).size(6).display(4).populate('author').exec();
     
     let str = JSON.stringify(articles);
     let result = JSON.parse(str);

@@ -6,7 +6,6 @@
             <ul class="topl_ul">
                 <li><a href="/home/">首 页</a></li>
                 <li><a href="/admin/user">后台管理</a></li>
-                <li><a href="#">移动开发</a></li>
                 <li>
                     <form action="/home/search" method="get">
                         <div class="search_box">
@@ -24,7 +23,7 @@
         <div class="login_area fr">
             <ul class="topr_ul">
                 
-                <li>
+                <!--<li>
                     <div class="shopcar">
                         <div class="shopcar_img"></div><a href="#"
                             style="display: inline-block;line-height: 38px;margin-left: -34px">购物车</a>
@@ -32,15 +31,18 @@
                 </li>
                 <li><a href="#">
                         <div class="message"></div>
-                    </a></li>
-                <li>
+                    </a>
+                </li> -->
+                <li class="myuserName">
                     <p class="person_name" style="display: block;"></p>
                     <% if (userInfo.username) { %>
-                        <a href="">{{userInfo.username}}</a>
+                        <img class="usercover" src="{{userInfo.cover}}">
+                        <span style="vertical-align: 68%;color: rgb(100, 109, 114);font-size:16px">{{userInfo.username}}</span>
+                        <a class="logout" href="/home/logout"><p>退出登录</p></a>
                     <% } else { %>
                     <a href="">
                         <a href="../admin/login" >登录 </a>/
-                        <a href="./register.html">注册</a>
+                        <a href="../admin/register">注册</a>
                     </a>
                     <% } %>
                     <a class="comm_headImg myhead" style="background-image: url(images/myhead.jpg); display: none;"

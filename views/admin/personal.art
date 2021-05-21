@@ -8,47 +8,31 @@
         <div class="main">
             <!-- 分类标题 -->
             <div class="title">
-                <h4 style="display: {{button == '修改' ? 'block' : 'none'}}">{{@user && user._id}}</h4>
-                <p class="tips">{{message}}</p>
+                <h4>&nbsp;&nbsp;个人资料</h4>
             </div>
             <!-- /分类标题 -->
-            <form class="form-container" action="{{link}}" method="post" enctype="multipart/form-data">
+            <form class="form-container" action="/admin/personal" method="get">
                 <div class="form-group">
                     <label>用户名</label>
-                    <input value="{{user && user.username}}" name="username" type="text" class="form-control" placeholder="请输入用户名">
+                    <input value="{{userInfo.username}}" name="username" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
-                    <label>邮箱</label>
-                    <input value="{{user && user.email}}" name="email" type="email" class="form-control" placeholder="请输入邮箱地址">
+                    <label>我的邮箱</label>
+                    <input value="{{userInfo.email}}" name="email" type="email" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <label>密码</label>
-                    <input name="password" type="password" class="form-control" placeholder="请输入密码">
+                    <input name="password" type="password" class="form-control" placeholder="**********" readonly>
                 </div>
                 <div class="form-group">
-                   <label for="exampleInputFile">上传头像</label>
-                   <input name="cover" type="file" id="file" accept="image/*">
+                   <label for="exampleInputFile">我的头像</label>
                    <div class="thumbnail-waper">
-                       <img class="uimg-thumbnail" src="{{user && user.cover}}" id="preview">
+                       <img class="uimg-thumbnail" src="{{userInfo.cover}}" id="preview">
                    </div>
                 </div>
                 <div class="form-group">
                     <label>角色</label>
-                    <select name="role" class="form-control">
-                        <option value="normal" {{user && user.role == 'normal' ? 'selected' : ''}}>普通用户</option>
-                        <option value="admin" {{user && user.role == 'admin' ? 'selected' : ''}}>超级管理员</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>状态</label>
-                    <select name="state" class="form-control">
-                        <option value="0" {{user && user.state == '0' ? 'selected' : ''}}>启用</option>
-                        <option value="1" {{user && user.state == '1' ? 'selected' : ''}}>禁用</option>
-                    </select>
-                </div>
-                
-                <div class="buttons">
-                    <input value="{{button}}" type="submit" class="btn btn-primary">
+                    <input name="role" value="超级管理员"class="form-control" readonly>
                 </div>
             </form>
         </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Blog - Content Manager</title>
+    <title>在线课程管理系统 Online course</title>
     <link rel="stylesheet" href="/admin/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/admin/css/base.css">
     {{block 'link'}}{{/block}}

@@ -21,7 +21,7 @@
                         <th>关联课程</th>
                         <th>上传时间</th>
                         <th>上传作者</th>
-                        <th>操作</th>
+                        <th>&nbsp;操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,11 +31,8 @@
                         <td>{{$value.title}}</td>
                         <td>{{$value.cid.title}}</td>
                         <td>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</td>
-                        <td>{{$value.cid.author.username}}</td>
-                        <td>
-                            <a href="task-edit?id={{@$value._id}}" class="glyphicon glyphicon-edit"></a>
-                            <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target=".confirm-modal" data-id="{{@$value._id}}"></i>
-                        </td>
+                        <td>{{$value.uid.username}}</td>
+                        <td style="color: #aaa;">&nbsp;禁止</td>
                     </tr>
                     {{/each}}
                 </tbody>

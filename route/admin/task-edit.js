@@ -6,12 +6,11 @@ const pagination = require('mongoose-sex-page');
 module.exports = async(req, res) => {
 
     // 标识 标识当前访问的是文章管理页面
-    req.app.locals.currentLink = 'task';
+    req.app.locals.currentLink = 'mytask';
 
     // 接收客户端传递过来的请求参数
     const {message, id} = req.query;
 
-    let result = await Task.findOne({_id: id}).populate('cid').populate('uid').lean();
 
     // 接收客户端传递过来的页码
     const page = req.query.page;
@@ -20,17 +19,19 @@ module.exports = async(req, res) => {
     let str = JSON.stringify(articles);
     let results = JSON.parse(str);
 
+    
     // 如果当前传递了id参数
     if(id) {
         // 修改操作
-        let task = await Task.findOne({_id: id});
-
+        // let result = await Task.findOne({_id: id}).populate('cid').populate('uid').lean();
+        let result = await Task.findOne({_id: id});
+        // res.send(result);
+        // return;
         res.render('admin/task-edit', {
             message: message,
-            task: task,
+            task: result,
             link: '/admin/task-modify?id=' + id,
             button: '修改',
-            result: result
         });
     } else {
         // 上传操作

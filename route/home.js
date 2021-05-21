@@ -3,6 +3,9 @@ const express = require('express');
 // 创建博客展示页面路由
 const home = express.Router();
 
+// 实现退出功能(通过a标签过来的请求一定是get请求)
+home.get('/logout', require('./home/logout'));
+
 // 前台首页展示页面
 home.get('/', require('./home/index'));
 

@@ -47,10 +47,10 @@ async function createUser() {
     const salt = await bcrypt.genSalt(10);
     const pass = await bcrypt.hash('123456', salt);
     const user = await User.create({
-        username: 'sy',
-        email: 'syy@qq.cn',
-        password: pass,
-
+        _id: '6077fb84f42c400c286af948',
+        username: '卧槽啊啊啊',
+        email: 'syywww@qq.cn',
+        password: '123456',
     });
 }
 // createUser();

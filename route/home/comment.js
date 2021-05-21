@@ -7,12 +7,14 @@ module.exports = async(req, res) => {
     // res.send(req.body);
     // return;
     // 将评论信息存储到评论集合中
-    await Comment.create({
-        content: content,
-        uid: uid,
-        cid: cid,
-        time: new Date()
-    });
+    if(content != "") {
+        await Comment.create({
+            content: content,
+            uid: uid,
+            cid: cid,
+            time: new Date()
+        });
+    }
 
     // 将页面重定向回课程详情页面
     res.redirect('/home/course?id=' + cid);

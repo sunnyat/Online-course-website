@@ -10,7 +10,7 @@
                 <li>
                     <a class="item {{currentLink == 'mycourse' ? 'active' : ''}}" href="/admin/mycourse">
 			  			<span class="glyphicon glyphicon-th-list"></span>
-			  			上传课程
+			  			我的课程
 			  		</a>
                 </li>
                 <li>

@@ -60,14 +60,77 @@
     font-size: 16px;
     color: #555;
 }
+/* 作业划入划出 */
+.tasks {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    /* float: left; */
+    /* overflow: hidden; */
+}
+.tasks .task_con {
+    position: absolute;
+    left: 140px;
+    top: -300px;
+    width: 990px;
+    min-height: 190px;
+    padding:10px 20px 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    /* box-shadow: 0 0 4px #aaa; */
+    color: #333;
+    background-color: rgb(249, 249, 249);
+    z-index: -1;
+}
+.tasks .task_con .task_name {
+    /* text-indent: 10px; */
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 46px;
+    /* border-bottom: 1px solid #aaa; */
+}
+.tasks .task_con .task_content {
+    font-size: 16px;
+    padding: 6px 4px 2px;
+}
+.tasks .task_con .task_time {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: block;
+    /* float: right; */
+}
+.tasks .task_con li {
+    margin: 18px auto;
+    min-height: 150px;
+    background-color: #fff;
+    width: 850px;
+}
+
+.looktask {
+    display: inline-block!important;
+    width: 100px;
+    height: 66px;
+    line-height: 66px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-indent: 18px;
+    color: #545C63;
+    cursor: pointer;
+}
+.looktask:hover {
+    background-color: rgb(249, 249, 249);
+}
 
 
 .MsgTitle {
     margin-bottom: 30px;
     height: 70px;
-    /* background-color: rosybrown; */
+    padding-left: 190px;
+    background-color: #fff;
     box-shadow: 0px 2px 14px -6px #999;
-    
+    position: relative;
 }
 .MsgTitle h3,.MsgTitle p {
     display: inline-block;
@@ -83,12 +146,24 @@
     display: inline-block;
     color: #7f878f;
 }
-
+.MsgTitle div {
+    display: inline;
+}
+/* 作业部分 */
+/* .taskCon {
+    height: 200px;
+    margin-top: -34px;
+    background-color: red;
+} */
 
 /* 留言部分 */
+.leaveMsg {
+    background-color: #fff;
+    position: relative;
+    /* z-index: -10; */
+}
 .leaveMsg form {
     padding: 26px 40px !important;
-    /* margin-bottom: 20px; */
 }
 .leaveMsg .publish_left {
     margin-right: 20px;
@@ -141,7 +216,7 @@
     background-color: #00B5E5;
 }
 
-.leaveMsg li,.leaveMsg form {
+.leaveMsg li,.leaveMsg form, .task_con li {
     margin-bottom: 12px;
     padding: 20px 40px;
     /* background-color: rosybrown; */
