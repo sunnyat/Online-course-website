@@ -71,7 +71,7 @@
 
 1. 注册页面
 
-   <img src="./readImg/注册.jpg" alt="注册页面" style="zoom:50%;" />
+   ![注册页面](https://raw.githubusercontent.com/sunyan1998/Online-course-website/main/readImg/%E6%B3%A8%E5%86%8C.jpg)
 
 2. 系统首页
 
