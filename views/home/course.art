@@ -168,7 +168,7 @@
         // console.log(height);
         looktask.addEventListener('mouseenter', function() {
             leaveMsg.style.zIndex = -10;
-            animatetop(tasks, height + 120, function() {
+            animatetop(tasks, height + 126, function() {
                 // tasks.style.zIndex = 10;
             })
         })

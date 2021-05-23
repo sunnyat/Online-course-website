@@ -73,7 +73,7 @@
                     <h4 class="modal-title">请确认</h4>
                 </div>
                 <div class="modal-body">
-                    <p>您确定要删除这个课程吗?</p>
+                    <p>您确定要删除吗?</p>
                     <input type="hidden" name="id" id="deleteCourseId">
                 </div>
                 <div class="modal-footer">

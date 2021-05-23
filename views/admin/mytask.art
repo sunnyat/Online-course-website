@@ -26,6 +26,7 @@
                 </thead>
                 <tbody>
                     {{each taskss.records}}
+                    {{if $value.uid.username == userInfo.username}}
                     <tr>
                         <td>{{@$value._id}}</td>
                         <td>{{$value.title}}</td>
@@ -37,6 +38,7 @@
                             <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target=".confirm-modal" data-id="{{@$value._id}}"></i>
                         </td>
                     </tr>
+                    {{/if}}
                     {{/each}}
                 </tbody>
             </table>
@@ -52,7 +54,7 @@
                     <h4 class="modal-title">请确认</h4>
                 </div>
                 <div class="modal-body">
-                    <p>您确定要删除这个课程吗?</p>
+                    <p>您确定要删除吗?</p>
                     <input type="hidden" name="id" id="deleteCourseId">
                 </div>
                 <div class="modal-footer">
