@@ -69,34 +69,30 @@
 
 ## 系统图片展示
 
-1. 注册页面
-
-   <img src="./readImg/注册.jpg" alt="注册页面" style="zoom:50%;" />
-
-2. 系统首页
+1. 系统首页
 
    <img src="./readImg/首页.png" alt="系统首页" style="zoom:35%;" />
 
-3. 课程学习页
+2. 课程学习页
 
    <img src="./readImg/课程学习.jpg" alt="课程学习页" style="zoom:35%;" />
 
-4. 信息展示界面（管理系统）
+3. 信息展示界面（管理系统）
 
    <img src="./readImg/管理页.jpg" alt="管理页" style="zoom:58%;" />
 
-5. 用户修改界面
+4. 用户修改界面
 
    <img src="./readImg/用户编辑页.jpg" alt="用户修改页" style="zoom:60%;" />
 
-6. 课程编辑界面
+5. 课程编辑界面
 
    <img src="./readImg/课程编辑页.jpg" alt="课程编辑页" style="zoom:38%;" />
 
-7. 管理员个人中心
+6. 管理员个人中心
 
    <img src="./readImg/个人中心.png" alt="个人中心" style="zoom:38%;" />
 
-8. 作业管理
+7. 作业管理
 
    <img src="./readImg/上传作业.jpg" alt="上传作业" style="zoom:43%;" />
