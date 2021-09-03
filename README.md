@@ -96,5 +96,8 @@
 7. 作业管理
 
    <img src="./readImg/上传作业.jpg" alt="上传作业" style="zoom:43%;" />
+<<<<<<< HEAD
 
 ## 系统运行
+=======
+>>>>>>> 10cd221b00f2d1b19acdeb47125f358946a5d3c9
