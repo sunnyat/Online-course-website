@@ -100,10 +100,6 @@
 
 ## 系统运行
 
-将代码克隆到电脑上之后，以管理员的身份打开PowerShell窗口，cd进入系统所在目录，输入nodemon .\app.js运行系统
-
-<img src="./readImg/运行系统.png" alt="运行系统" style="zoom:100%;" />
+nodemon .\app.js运行系统
 
 系统运行成功后打开浏览器输入网址localhost/admin/login进入系统，接着注册登录就可以啦~
-
-<img src="./readImg/浏览器打开.png" alt="运行系统" style="zoom:100%;" />
